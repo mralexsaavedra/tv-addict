@@ -10,6 +10,7 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from '@/components/ui/DropdownMenu';
+import { Logo as LogoIcon } from '@/components/icons/Logo';
 
 interface MainNavProps {
   items?: NavItem[];
@@ -61,7 +62,7 @@ export function MainNav({ items }: MainNavProps) {
             variant="ghost"
             className="h-auto px-2 py-1.5 text-base hover:bg-neutral-800 focus:ring-0 dark:hover:bg-neutral-800 lg:hidden"
           >
-            {/* <Icons.logo className="mr-2 h-4 w-4 text-red-600" /> */}
+            <LogoIcon className="mr-2 h-4 w-4 text-red-600" />
             <span className="font-bold">Menu</span>
           </Button>
         </DropdownMenuTrigger>

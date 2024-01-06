@@ -12,6 +12,7 @@ import { useOnClickOutside } from '@/hooks/useOnClickOutside';
 import { cn } from '@/lib/utils';
 import { Button } from '@/components/ui/Button';
 import { Input, type InputProps } from '@/components/ui/Input';
+import { Search as SearchIcon } from '@/components/icons/Search';
 
 const WAIT_BETWEEN_CHANGE = 300;
 
@@ -110,15 +111,13 @@ const Search: FC<SearchProps> = ({
           inputRef.current.focus();
         }}
       >
-        <span
+        <SearchIcon
           className={cn(
             'text-slate-50 transition-opacity hover:opacity-75 active:scale-95',
             isOpen ? 'h-4 w-4' : 'h-5 w-5'
           )}
           aria-hidden="true"
-        >
-          🔍
-        </span>
+        />
       </Button>
     </div>
   );
