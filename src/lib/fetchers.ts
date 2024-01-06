@@ -68,18 +68,12 @@ export async function getPopular(
     page: number;
   } = { mediaType: 'movie', locale: LOCALE, page: 1 }
 ) {
-  return new Promise<{ popular: Show[] }>(async (resolve) => {
-    const { data } = await fetcher<Show[], { language: string; page: string }>(
-      `/${mediaType}/popular`,
-      { language: locale, page: String(page) }
-    );
+  const { data } = await fetcher<Show[], { language: string; page: string }>(
+    `/${mediaType}/popular`,
+    { language: locale, page: String(page) }
+  );
 
-    setTimeout(() => {
-      resolve({ popular: data });
-    }, 10000);
-
-    // return {
-    //   popular: data,
-    // };
-  });
+  return {
+    popular: data,
+  };
 }

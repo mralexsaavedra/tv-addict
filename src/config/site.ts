@@ -1,9 +1,13 @@
+import { Home } from '@/components/icons/Home';
+import { List } from '@/components/icons/List';
+import { Movie } from '@/components/icons/Movie';
+import { TrendingUp } from '@/components/icons/TrendingUp';
+import { TV } from '@/components/icons/Tv';
 import { SiteConfig } from '@/types';
 
 export const siteConfig: SiteConfig = {
   name: 'TV addict',
-  description:
-    'An open source TV addict web built using the new app router, server components, trpc, and everything new in Next.js 14.',
+  description: 'Track your TV Shows and Movies.',
   url: 'https://tv-addict.vercel.app',
   ogImage: 'https://tv-addict.vercel.app/opengraph-image.png',
   links: {
@@ -12,26 +16,31 @@ export const siteConfig: SiteConfig = {
   },
   mainNav: [
     {
-      title: 'Home',
+      title: 'Inicio',
       href: '/',
+      icon: Home,
     },
     {
-      title: 'TV Shows',
+      title: 'Series',
       href: '/tv-shows',
+      icon: TV,
       disabled: true,
     },
     {
-      title: 'Movies',
+      title: 'Películas',
       href: '/movies',
+      icon: Movie,
       disabled: true,
     },
     {
-      title: 'New & Popular',
+      title: 'Novedades más vistas',
       href: '/new-and-popular',
+      icon: TrendingUp,
     },
     {
-      title: 'My List',
+      title: 'Mi lista',
       href: '/my-list',
+      icon: List,
       disabled: true,
     },
   ],

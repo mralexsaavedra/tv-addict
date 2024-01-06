@@ -1,9 +1,9 @@
 import { SVGProps } from 'react';
 
-const Search = (props: SVGProps<SVGSVGElement>) => (
+const Home = (props: SVGProps<SVGSVGElement>) => (
   <svg
-    xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 24 24"
+    xmlns="http://www.w3.org/2000/svg"
     width={24}
     height={24}
     fill="none"
@@ -14,8 +14,9 @@ const Search = (props: SVGProps<SVGSVGElement>) => (
     {...props}
   >
     <path stroke="none" d="M0 0h24v24H0z" />
-    <path d="M3 10a7 7 0 1 0 14 0 7 7 0 1 0-14 0M21 21l-6-6" />
+    <path d="M5 12H3l9-9 9 9h-2M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-7" />
+    <path d="M9 21v-6a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v6" />
   </svg>
 );
 
-export { Search };
+export { Home };

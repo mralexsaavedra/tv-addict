@@ -1,6 +1,6 @@
 import { SVGProps } from 'react';
 
-const Search = (props: SVGProps<SVGSVGElement>) => (
+const List = (props: SVGProps<SVGSVGElement>) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 24 24"
@@ -10,12 +10,13 @@ const Search = (props: SVGProps<SVGSVGElement>) => (
     stroke="currentColor"
     strokeLinecap="round"
     strokeLinejoin="round"
-    strokeWidth={1}
+    strokeWidth={2}
+    className="icon icon-tabler icon-tabler-list"
     {...props}
   >
     <path stroke="none" d="M0 0h24v24H0z" />
-    <path d="M3 10a7 7 0 1 0 14 0 7 7 0 1 0-14 0M21 21l-6-6" />
+    <path d="M9 6h11M9 12h11M9 18h11M5 6v.01M5 12v.01M5 18v.01" />
   </svg>
 );
 
-export { Search };
+export { List };
