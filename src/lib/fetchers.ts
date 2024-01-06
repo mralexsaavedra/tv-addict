@@ -77,3 +77,15 @@ export async function getPopular(
     popular: data,
   };
 }
+
+export async function searchShows(query: string) {
+  const { data } = await fetcher<Show[], { query: string }>('/search/multi', {
+    query,
+  });
+
+  const shows = data.sort((a, b) => b.popularity - a.popularity);
+
+  return {
+    shows,
+  };
+}

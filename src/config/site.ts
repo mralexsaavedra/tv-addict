@@ -1,8 +1,8 @@
-import { Home } from '@/components/icons/Home';
-import { List } from '@/components/icons/List';
-import { Movie } from '@/components/icons/Movie';
-import { TrendingUp } from '@/components/icons/TrendingUp';
-import { TV } from '@/components/icons/Tv';
+import { Home as HomeIcon } from '@/components/icons/Home';
+import { List as ListIcon } from '@/components/icons/List';
+import { Movie as MovieIcon } from '@/components/icons/Movie';
+import { TrendingUp as TrendingUpIcon } from '@/components/icons/TrendingUp';
+import { TV as TVIcon } from '@/components/icons/TV';
 import { SiteConfig } from '@/types';
 
 export const siteConfig: SiteConfig = {
@@ -18,29 +18,29 @@ export const siteConfig: SiteConfig = {
     {
       title: 'Inicio',
       href: '/',
-      icon: Home,
+      icon: HomeIcon,
     },
     {
       title: 'Series',
       href: '/tv-shows',
-      icon: TV,
+      icon: TVIcon,
       disabled: true,
     },
     {
       title: 'Películas',
       href: '/movies',
-      icon: Movie,
+      icon: MovieIcon,
       disabled: true,
     },
     {
       title: 'Novedades más vistas',
       href: '/new-and-popular',
-      icon: TrendingUp,
+      icon: TrendingUpIcon,
     },
     {
       title: 'Mi lista',
       href: '/my-list',
-      icon: List,
+      icon: ListIcon,
       disabled: true,
     },
   ],

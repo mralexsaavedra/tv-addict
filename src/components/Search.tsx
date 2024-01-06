@@ -6,7 +6,7 @@ import {
   useRef,
   useState,
 } from 'react';
-import { usePathname, useRouter, useSearchParams } from 'next/navigation';
+import { useRouter, useSearchParams } from 'next/navigation';
 import { useDebouncedCallback } from 'use-debounce';
 import { useOnClickOutside } from '@/hooks/useOnClickOutside';
 import { cn } from '@/lib/utils';
@@ -28,8 +28,7 @@ const Search: FC<SearchProps> = ({
   className,
   ...props
 }) => {
-  const pathname = usePathname();
-  const { replace } = useRouter();
+  const { push } = useRouter();
   const searchParams = useSearchParams();
   const [isOpen, setIsOpen] = useState(false);
   const inputRef = useRef<HTMLInputElement>(null);
@@ -65,6 +64,11 @@ const Search: FC<SearchProps> = ({
   }, [closeInput]);
 
   const handleOnChange = useDebouncedCallback((value: string) => {
+    if (value === '') {
+      push('/');
+      return;
+    }
+
     const params = new URLSearchParams(searchParams);
 
     if (value) {
@@ -74,7 +78,7 @@ const Search: FC<SearchProps> = ({
     }
 
     startTransition(() => {
-      replace(`${pathname}?${params.toString()}`);
+      push(`/search?${params.toString()}`);
     });
 
     onChange(value);
@@ -86,11 +90,11 @@ const Search: FC<SearchProps> = ({
         ref={inputRef}
         id={id}
         type="text"
-        placeholder="Buscar..."
+        placeholder="Títulos, personas, géneros"
         className={cn(
           'h-auto rounded-none py-1.5 pl-8 text-sm transition-all dark:placeholder:text-slate-300 dark:focus:ring-offset-0',
           isOpen
-            ? 'w-24 border dark:border-slate-500 xxs:w-28 xs:w-44'
+            ? 'w-24 border dark:border-slate-500 xxs:w-28 xs:w-60'
             : 'w-0 border-none',
           className
         )}
