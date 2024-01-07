@@ -9,11 +9,11 @@ export default async function SearchPage({
   };
 }) {
   const query = searchParams?.q || '';
-  const { shows } = await searchShows(query);
+  const { data } = await searchShows(query);
 
   return (
     <section aria-label="Search page">
-      <Gallery shows={shows} title={`Busqueda: ${query}`} />
+      <Gallery shows={data} title={`Busqueda: ${query}`} />
     </section>
   );
 }

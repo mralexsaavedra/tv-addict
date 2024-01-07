@@ -1,20 +1,20 @@
 import { Skeleton } from '@/components/ui/Skeleton';
 import { FC } from 'react';
 
-interface GallerySkeletonProps {
+interface CarouselProps {
   count?: number;
 }
 
-const GallerySkeleton: FC<GallerySkeletonProps> = ({ count = 30 }) => {
+const Carousel: FC<CarouselProps> = ({ count = 8 }) => {
   return (
     <div className="no-scrollbar mx-0 w-full overflow-x-auto overflow-y-hidden">
       <Skeleton className="h-[1.62rem] w-28 rounded bg-neutral-700" />
 
-      <div className="mt-2.5 grid gap-4 grid-cols-2 md:grid-cols-[repeat(auto-fill,minmax(200px,1fr))]">
+      <div className="mt-2.5 flex w-full items-center gap-1.5">
         {Array.from({ length: count }, (_, i) => (
           <Skeleton
             key={i}
-            className="w-[200px] h-[300px] rounded bg-neutral-700"
+            className="aspect-video min-w-[15rem] rounded bg-neutral-700"
           />
         ))}
       </div>
@@ -22,4 +22,4 @@ const GallerySkeleton: FC<GallerySkeletonProps> = ({ count = 30 }) => {
   );
 };
 
-export { GallerySkeleton };
+export { Carousel };

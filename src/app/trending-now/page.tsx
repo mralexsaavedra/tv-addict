@@ -2,14 +2,14 @@ import { Gallery } from '@/components/Gallery';
 import { getTrending } from '@/lib/fetchers';
 
 export default async function TrendingNowPage() {
-  const { trending } = await getTrending({
+  const { data } = await getTrending({
     mediaType: 'movie',
     timeWindow: 'day',
   });
 
   return (
     <section aria-label="Trending now page">
-      <Gallery shows={trending} title="Tendencia ahora" />
+      <Gallery shows={data} title="Tendencia ahora" />
     </section>
   );
 }

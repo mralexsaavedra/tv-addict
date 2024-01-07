@@ -4,16 +4,16 @@ import { getPopular } from '@/lib/fetchers';
 import { TopShowsCarousel } from '@/components/TopShowsCarousel';
 
 interface PopularProps {
-  title?: string;
+  title: string;
   mediaType: MediaType;
 }
 
-const Popular: FC<PopularProps> = async ({ mediaType, title = 'Popular' }) => {
-  const { popular } = await getPopular({ mediaType });
+const Popular: FC<PopularProps> = async ({ title, mediaType }) => {
+  const { data } = await getPopular({ mediaType });
 
   return (
     <section aria-label="Popular shows">
-      <TopShowsCarousel title={title} shows={popular} />
+      <TopShowsCarousel title={title} shows={data} />
     </section>
   );
 };

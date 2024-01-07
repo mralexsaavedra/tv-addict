@@ -1,5 +1,6 @@
 import type { MediaType, Show } from '@/types';
 import { LOCALE, Locale } from '@/lib/locale';
+import { COUNTRY, Country } from '@/lib/country';
 
 const DOMAIN = 'https://api.themoviedb.org';
 const VERSION = '3';
@@ -47,14 +48,10 @@ export async function getTrending(
     locale?: Locale;
   } = { mediaType: 'movie', timeWindow: 'week', locale: LOCALE }
 ) {
-  const { data } = await fetcher<Show[], { language: string }>(
+  return await fetcher<Show[], { language: string }>(
     `/trending/${mediaType}/${timeWindow}`,
     { language: locale }
   );
-
-  return {
-    trending: data,
-  };
 }
 
 export async function getPopular(
@@ -68,24 +65,69 @@ export async function getPopular(
     page?: number;
   } = { mediaType: 'movie', locale: LOCALE, page: 1 }
 ) {
-  const { data } = await fetcher<Show[], { language: string; page: string }>(
+  return await fetcher<Show[], { language: string; page: string }>(
     `/${mediaType}/popular`,
     { language: locale, page: String(page) }
   );
-
-  return {
-    popular: data,
-  };
 }
 
 export async function searchShows(query: string) {
-  const { data } = await fetcher<Show[], { query: string }>('/search/multi', {
-    query,
-  });
-
-  const shows = data.sort((a, b) => b.popularity - a.popularity);
+  const { data, status } = await fetcher<Show[], { query: string }>(
+    '/search/multi',
+    {
+      query,
+    }
+  );
 
   return {
-    shows,
+    data: data.sort((a, b) => b.popularity - a.popularity),
+    status,
   };
+}
+
+export async function getUpcoming(
+  {
+    locale = LOCALE,
+    page = 1,
+    region = COUNTRY,
+  }: {
+    locale?: Locale;
+    page?: number;
+    region?: Country;
+  } = { locale: LOCALE, page: 1, region: COUNTRY }
+) {
+  return await fetcher<
+    Show[],
+    { language: string; page: string; region: string }
+  >('/movie/upcoming', { language: locale, page: String(page), region });
+}
+
+export async function getOnTheAir(
+  {
+    locale = LOCALE,
+    page = 1,
+  }: {
+    locale?: Locale;
+    page?: number;
+  } = { locale: LOCALE, page: 1 }
+) {
+  return await fetcher<Show[], { language: string; page: string }>(
+    '/tv/on_the_air',
+    { language: locale, page: String(page) }
+  );
+}
+
+export async function getAiringToday(
+  {
+    locale = LOCALE,
+    page = 1,
+  }: {
+    locale?: Locale;
+    page?: number;
+  } = { locale: LOCALE, page: 1 }
+) {
+  return await fetcher<Show[], { language: string; page: string }>(
+    '/tv/airing_today',
+    { language: locale, page: String(page) }
+  );
 }
