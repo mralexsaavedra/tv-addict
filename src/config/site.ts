@@ -1,10 +1,9 @@
+import type { SiteConfig } from '@/types';
+import { Routes } from '@/lib/routes';
 import { Home as HomeIcon } from '@/components/icons/Home';
 import { List as ListIcon } from '@/components/icons/List';
 import { Movie as MovieIcon } from '@/components/icons/Movie';
-import { TrendingUp as TrendingUpIcon } from '@/components/icons/TrendingUp';
 import { TV as TVIcon } from '@/components/icons/TV';
-import { Routes } from '@/lib/routes';
-import { SiteConfig } from '@/types';
 
 export const siteConfig: SiteConfig = {
   name: 'TV addict',

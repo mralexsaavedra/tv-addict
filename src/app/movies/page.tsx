@@ -13,7 +13,7 @@ export default function MoviesPage() {
   const { push } = useRouter();
 
   const handleOnClickTrending = useCallback(
-    () => push(Routes.Trending),
+    () => push(`${Routes.Trending}?mediaType=movie`),
     [push]
   );
 

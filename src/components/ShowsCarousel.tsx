@@ -1,8 +1,8 @@
 'use client';
 
 import { FC, useCallback } from 'react';
+import type { Show } from '@/types';
 import { Carousel, RenderItemFunction } from '@/components/ui/Carousel';
-import { Show } from '@/types';
 import { Card } from '@/components/Card';
 
 interface ShowsCarouselProps {
