@@ -9,7 +9,7 @@ import { Search } from '@/components/Search';
 import { Skeleton } from '@/components/ui/Skeleton';
 import { MainNav } from '@/components/layouts/MainNav';
 import { siteConfig } from '@/config/site';
-import { buttonVariants } from '../ui/Button';
+import { buttonVariants } from '@/components/ui/Button';
 
 const Header = () => {
   const pathname = usePathname();

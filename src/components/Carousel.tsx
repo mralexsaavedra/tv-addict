@@ -3,7 +3,9 @@
 import type { Show } from '@/types';
 import { cn } from '@/lib/utils';
 import { FC, useRef, useState } from 'react';
-import { Card } from './Card';
+import { Card } from '@/components/Card';
+import { ChevronLeft } from '@/components/icons/ChevronLeft';
+import { ChevronRight } from '@/components/icons/ChevronRight';
 
 interface CarouselProps {
   title: string;
@@ -35,15 +37,13 @@ const Carousel: FC<CarouselProps> = ({ title, shows }) => {
       </h2>
 
       <div className="group relative mt-12">
-        <button
+        <ChevronLeft
           className={cn(
             'absolute top-0 bottom-0 left-2 z-40 m-auto h-9 w-9 cursor-pointer opacity-0 transition hover:scale-125 group-hover:opacity-100',
             !isMoved && 'hidden'
           )}
           onClick={() => handleClick('left')}
-        >
-          ←
-        </button>
+        />
 
         <div
           ref={showsRef}
@@ -60,12 +60,10 @@ const Carousel: FC<CarouselProps> = ({ title, shows }) => {
           ))}
         </div>
 
-        <button
+        <ChevronRight
           className="absolute top-0 bottom-0 right-2 z-40 m-auto h-9 w-9 cursor-pointer opacity-0 transition hover:scale-125 group-hover:opacity-100"
           onClick={() => handleClick('right')}
-        >
-          →
-        </button>
+        />
       </div>
     </div>
   );

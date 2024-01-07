@@ -1,6 +1,6 @@
 import { getPopular } from '@/lib/fetchers';
 import { FC } from 'react';
-import { Gallery } from './Gallery';
+import { Gallery } from '@/components/Gallery';
 
 const Popular: FC = async () => {
   const { popular } = await getPopular();

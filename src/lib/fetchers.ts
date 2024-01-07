@@ -1,5 +1,5 @@
 import type { MediaType, Show } from '@/types';
-import { LOCALE, Locale } from './locale';
+import { LOCALE, Locale } from '@/lib/locale';
 
 const DOMAIN = 'https://api.themoviedb.org';
 const VERSION = '3';
