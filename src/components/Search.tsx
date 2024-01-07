@@ -90,7 +90,7 @@ const Search: FC<SearchProps> = ({
         ref={inputRef}
         id={id}
         type="text"
-        placeholder="Títulos, personas, géneros"
+        placeholder="Títulos o personas"
         className={cn(
           'h-auto rounded-none py-1.5 pl-8 text-sm transition-all dark:placeholder:text-slate-300 dark:focus:ring-offset-0',
           isOpen

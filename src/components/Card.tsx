@@ -1,10 +1,13 @@
 import { FC } from 'react';
 import Image from 'next/image';
-import type { Show } from '@/types';
+import type { Person, Show } from '@/types';
 import { cn } from '@/lib/utils';
 
+const isPerson = (show: Show | Person): show is Person =>
+  show.media_type === 'person';
+
 interface CardProps {
-  show: Show;
+  show: Show | Person;
   width?: number;
   height?: number;
   path?: string | null;
@@ -23,9 +26,13 @@ const Card: FC<CardProps> = ({
   return (
     <Image
       src={`https://image.tmdb.org/t/p/${size}/${
-        path ?? show.poster_path ?? show.backdrop_path ?? ''
+        path
+          ? path
+          : isPerson(show)
+          ? show.profile_path ?? ''
+          : show.poster_path ?? show.backdrop_path ?? ''
       }`}
-      alt={show.title ?? show.name ?? 'poster'}
+      alt={isPerson(show) ? show.name : show.title ?? show.name ?? 'poster'}
       width={width}
       height={height}
       loading="lazy"

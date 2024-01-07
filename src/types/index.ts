@@ -9,7 +9,7 @@ export type NavItem = {
   icon?: ComponentType<SVGProps<SVGSVGElement>>;
 };
 
-export type MediaType = 'movie' | 'tv';
+export type MediaType = 'movie' | 'tv' | 'person';
 
 export interface SiteConfig {
   name: string;
@@ -21,6 +21,19 @@ export interface SiteConfig {
     github: string;
   };
   mainNav: NavItem[];
+}
+
+export interface Person {
+  adult: boolean;
+  id: number;
+  name: string;
+  original_name: string;
+  media_type: MediaType;
+  popularity: number;
+  gender: number;
+  known_for_department: string;
+  profile_path: string;
+  known_for: any;
 }
 
 export interface Show {
