@@ -3,6 +3,7 @@ import { List as ListIcon } from '@/components/icons/List';
 import { Movie as MovieIcon } from '@/components/icons/Movie';
 import { TrendingUp as TrendingUpIcon } from '@/components/icons/TrendingUp';
 import { TV as TVIcon } from '@/components/icons/TV';
+import { Routes } from '@/lib/routes';
 import { SiteConfig } from '@/types';
 
 export const siteConfig: SiteConfig = {
@@ -17,29 +18,22 @@ export const siteConfig: SiteConfig = {
   mainNav: [
     {
       title: 'Inicio',
-      href: '/',
+      href: Routes.Home,
       icon: HomeIcon,
     },
     {
       title: 'Series',
-      href: '/tv-shows',
+      href: Routes.TVShows,
       icon: TVIcon,
-      disabled: true,
     },
     {
       title: 'Películas',
-      href: '/movies',
+      href: Routes.Movies,
       icon: MovieIcon,
-      disabled: true,
-    },
-    {
-      title: 'Novedades más vistas',
-      href: '/new-and-popular',
-      icon: TrendingUpIcon,
     },
     {
       title: 'Mi lista',
-      href: '/my-list',
+      href: Routes.MyList,
       icon: ListIcon,
       disabled: true,
     },

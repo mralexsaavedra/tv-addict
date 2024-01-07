@@ -1,8 +1,9 @@
+import { Routes } from '@/lib/routes';
 import { ComponentType, SVGProps } from 'react';
 
 export type NavItem = {
   title: string;
-  href?: string;
+  href?: Routes;
   onClick?: () => void;
   disabled?: boolean;
   external?: boolean;
