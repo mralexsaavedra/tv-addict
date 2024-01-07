@@ -13,6 +13,7 @@ import { cn } from '@/lib/utils';
 import { Button } from '@/components/ui/Button';
 import { Input, type InputProps } from '@/components/ui/Input';
 import { Search as SearchIcon } from '@/components/icons/Search';
+import { Routes } from '@/lib/routes';
 
 const WAIT_BETWEEN_CHANGE = 300;
 
@@ -65,7 +66,7 @@ const Search: FC<SearchProps> = ({
 
   const handleOnChange = useDebouncedCallback((value: string) => {
     if (value === '') {
-      push('/');
+      push(Routes.Home);
       return;
     }
 
@@ -78,7 +79,7 @@ const Search: FC<SearchProps> = ({
     }
 
     startTransition(() => {
-      push(`/search?${params.toString()}`);
+      push(`${Routes.Search}?${params.toString()}`);
     });
 
     onChange(value);

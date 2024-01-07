@@ -1,13 +1,23 @@
 import { FC } from 'react';
+import type { MediaType } from '@/types';
 import { getTrending } from '@/lib/fetchers';
-import { Carousel } from '@/components/Carousel';
+import { ShowsCarousel } from '@/components/ShowsCarousel';
 
-const Trending: FC = async () => {
-  const { trending } = await getTrending();
+interface TrendingProps {
+  mediaType: MediaType;
+  onClick?: () => void;
+}
+
+const Trending: FC<TrendingProps> = async ({ mediaType, onClick }) => {
+  const { trending } = await getTrending({ mediaType });
 
   return (
-    <section aria-label="Treding shows">
-      <Carousel shows={trending} title="Trending" />
+    <section aria-label="Trending shows">
+      <ShowsCarousel
+        shows={trending}
+        title="Tendencias ahora"
+        onClick={onClick}
+      />
     </section>
   );
 };

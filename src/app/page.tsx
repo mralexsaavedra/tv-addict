@@ -1,12 +1,22 @@
 import { Suspense } from 'react';
-import { Trending } from '@/components/Trending';
+import { Popular } from '@/components/Popular';
 import { CarouselSkeleton } from '@/components/CarouselSkeleton';
 
 export default function Home() {
   return (
-    <section className="container w-full max-w-screen-2xl pb-16 pt-10 flex flex-col gap-12">
+    <section aria-label="Home page" className="flex flex-col gap-[3vw]">
       <Suspense fallback={<CarouselSkeleton />}>
-        <Trending />
+        <Popular
+          mediaType="tv"
+          title="Las 10 series más populares de esta semana"
+        />
+      </Suspense>
+
+      <Suspense fallback={<CarouselSkeleton />}>
+        <Popular
+          mediaType="movie"
+          title="Las 10 películas más populares de esta semana"
+        />
       </Suspense>
     </section>
   );

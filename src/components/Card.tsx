@@ -13,6 +13,7 @@ interface CardProps {
   path?: string | null;
   size?: 'original' | 'w500';
   className?: string;
+  onClick?: () => void;
 }
 
 const Card: FC<CardProps> = ({
@@ -22,6 +23,7 @@ const Card: FC<CardProps> = ({
   path,
   size = 'w500',
   className,
+  onClick,
 }) => {
   return (
     <Image
@@ -40,6 +42,7 @@ const Card: FC<CardProps> = ({
         'object-cover rounded cursor-pointer transition-transform duration-200 ease-out hover:z-20 hover:scale-105',
         className
       )}
+      onClick={onClick}
     />
   );
 };

@@ -12,7 +12,7 @@ export default async function SearchPage({
   const { shows } = await searchShows(query);
 
   return (
-    <section className="container w-full max-w-screen-2xl pb-16 pt-10 flex flex-col gap-12">
+    <section aria-label="Search page">
       <Gallery shows={shows} title={`Busqueda: ${query}`} />
     </section>
   );

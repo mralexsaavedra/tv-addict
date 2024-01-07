@@ -74,7 +74,10 @@ export default function RootLayout({ children }: RootLayoutProps) {
     >
       <body className="min-h-screen">
         <Header />
-        {children}
+
+        <main className="container w-full max-w-screen-2xl pb-16 pt-10 flex flex-col gap-12">
+          {children}
+        </main>
       </body>
     </html>
   );

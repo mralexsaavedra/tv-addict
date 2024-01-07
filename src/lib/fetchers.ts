@@ -42,9 +42,9 @@ export async function getTrending(
     timeWindow = 'week',
     locale = LOCALE,
   }: {
-    mediaType: MediaType;
-    timeWindow: 'day' | 'week';
-    locale: Locale;
+    mediaType?: MediaType;
+    timeWindow?: 'day' | 'week';
+    locale?: Locale;
   } = { mediaType: 'movie', timeWindow: 'week', locale: LOCALE }
 ) {
   const { data } = await fetcher<Show[], { language: string }>(
@@ -63,9 +63,9 @@ export async function getPopular(
     locale = LOCALE,
     page = 1,
   }: {
-    mediaType: MediaType;
-    locale: Locale;
-    page: number;
+    mediaType?: MediaType;
+    locale?: Locale;
+    page?: number;
   } = { mediaType: 'movie', locale: LOCALE, page: 1 }
 ) {
   const { data } = await fetcher<Show[], { language: string; page: string }>(

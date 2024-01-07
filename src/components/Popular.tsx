@@ -1,13 +1,19 @@
-import { getPopular } from '@/lib/fetchers';
 import { FC } from 'react';
-import { Gallery } from '@/components/Gallery';
+import type { MediaType } from '@/types';
+import { getPopular } from '@/lib/fetchers';
+import { TopShowsCarousel } from '@/components/TopShowsCarousel';
 
-const Popular: FC = async () => {
-  const { popular } = await getPopular();
+interface PopularProps {
+  title?: string;
+  mediaType: MediaType;
+}
+
+const Popular: FC<PopularProps> = async ({ mediaType, title = 'Popular' }) => {
+  const { popular } = await getPopular({ mediaType });
 
   return (
     <section aria-label="Popular shows">
-      <Gallery shows={popular} title="Popular" />
+      <TopShowsCarousel title={title} shows={popular} />
     </section>
   );
 };

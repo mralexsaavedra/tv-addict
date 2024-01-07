@@ -1,5 +1,5 @@
 import { GallerySkeleton } from '@/components/GallerySkeleton';
 
-export default function SearchLoading() {
+export default function TrendingNowLoading() {
   return <GallerySkeleton />;
 }
