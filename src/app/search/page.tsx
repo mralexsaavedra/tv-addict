@@ -1,4 +1,4 @@
-import { Gallery } from '@/components/Gallery';
+import { ShowsGallery } from '@/components/ShowsGallery';
 import { searchShows } from '@/lib/fetchers';
 
 export default async function SearchPage({
@@ -13,7 +13,7 @@ export default async function SearchPage({
 
   return (
     <section aria-label="Search page">
-      <Gallery shows={data} title={`Busqueda: ${query}`} />
+      <ShowsGallery shows={data} title={`Busqueda: ${query}`} />
     </section>
   );
 }

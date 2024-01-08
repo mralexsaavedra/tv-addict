@@ -1,6 +1,6 @@
 import type { MediaType } from '@/types';
 import { getPopular } from '@/lib/fetchers';
-import { TrendingNow } from '@/components/TrendingNow';
+import { ShowsInfiniteGallery } from '@/components/ShowsInfiniteGallery';
 
 export default async function TrendingNowPage({
   searchParams,
@@ -18,5 +18,5 @@ export default async function TrendingNowPage({
     page,
   });
 
-  return <TrendingNow title="Tendencia ahora" shows={data} />;
+  return <ShowsInfiniteGallery title="Tendencia ahora" shows={data} />;
 }

@@ -11,8 +11,8 @@ interface ClassName {
 }
 
 interface RenderItemFunctionArgs<T> {
-  readonly item: T;
-  readonly index: number;
+  item: T;
+  index: number;
 }
 export interface RenderItemFunction<T> {
   (args: RenderItemFunctionArgs<T>): JSX.Element;
